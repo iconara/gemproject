@@ -91,10 +91,3 @@ BODY
     [subject,body].join("\n\n")
   end
 end
-def create_issues_for_repos(needs_issue)
-  needs_issue.each do |repo|
-    p "Creating issue for #{repo}"
-    `ghi create -m "#{issue_message}" -- #{repo} && echo "#{repo}" >> #{@license_issues} || echo '#{repo}' >> failed_#{@license_issues}`
-  end
-end
-create_issues_for_repos(needs_issue)
